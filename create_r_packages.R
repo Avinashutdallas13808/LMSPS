@@ -224,6 +224,8 @@ use_git()
 # - Update the DESCRIPTION file with accurate package information
 # - Create a README.md file explaining your package
 # - (Optional) Set up continuous integration using use_github_action()
+use_github_action()
+
 
 # Questions to answer:
 # 1. Update the functions and commit the changes to your github page. Specifically, adjust the plot function so that they contain color and the summary function to make it more comprehensive.

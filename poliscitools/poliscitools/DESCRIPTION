@@ -1,12 +1,18 @@
 Package: poliscitools
-Title: What the Package Does (One Line, Title Case)
+Type: Package
+Title: Tools for Political Science Research
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Avinash", "Singh", , "avinash.singh@utdallas.edu", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: A set of tools to facilitate data cleaning, analysis, and visualization for political science research.The package includes functions for cleaning voter data, analyzing voter turnout, and visualizing party distributiion.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
+LazyData: ture
+Description_LazyData_true: It means data isn't loaded into memory when the package is loaded, but rather only when the user first requests to use that specific dataset. It reduces initial memory usage since data is only loaded when needed, it speeeds up package load time, and it is more efficient for packages that contain multiple datasets where users might only need some of them.
+Imports:
+    dplyr,
+    ggplot2
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
