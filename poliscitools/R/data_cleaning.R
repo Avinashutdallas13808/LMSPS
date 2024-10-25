@@ -41,3 +41,4 @@ clean_political_data <- function(data) {
   # Return the cleaned data
   return(data)
 }
+
