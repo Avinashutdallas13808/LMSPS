@@ -43,3 +43,4 @@ visualize_party_distribution <- function(data) {
   # Return the plot
   return(plot)
 }
+

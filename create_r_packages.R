@@ -42,6 +42,7 @@ setwd("poliscitools")
 use_r("data_cleaning")
 use_r("analysis")
 use_r("visualization")
+use_r("Logistic_Regression")
 
 # Step 3: Implement functions
 # Write at least three functions relevant to political science research
