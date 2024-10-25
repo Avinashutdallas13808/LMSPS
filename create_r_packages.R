@@ -197,6 +197,77 @@ visualize_party_distribution <- function(data) {
   return(plot)
 }
 
+#' Visualize party distribution
+#'
+#' @param data A data frame containing party affiliation data
+#' @return A ggplot object
+#' @export
+#visualize_party_distribution <- function(data) {
+  # Your visualization logic here
+#  ggplot(data, aes(x = party)) + geom_bar()
+#}
+
+#' Visualize party distribution with custom colors
+#'
+#' This function creates a bar plot to visualize the distribution of party affiliation in the data,
+#' with custom colors for each party.
+#'
+#' @param data A data frame containing party affiliation data, including a 'party' column
+#' @return A ggplot object showing the distribution of party affiliation with colors
+#' @export
+visualize_party_distribution <- function(data) {
+
+  # Check if the 'party' column exists
+  if (!"party" %in% colnames(data)) {
+    stop("The 'party' column is not found in the dataset.")
+  }
+
+  # Remove rows with missing party data
+  data <- data[!is.na(data$party), ]
+  
+  # Create a color palette
+  party_colors <- c("Democrat" = "#1F78B4", "Republican" = "#E31A1C", "Independent" = "#33A02C")
+
+  # Create the bar plot
+  plot <- ggplot(data, aes(x = fct_infreq(party))) +  # Order by frequency
+    geom_bar(color = "black") +                       # Add border
+    scale_fill_manual(values = party_colors) +        # Apply custom colors
+    labs(title = "Party Affiliation Distribution",    # Add title and axis labels
+         x = "Political Party", y = "Count") +
+    theme_minimal() +                                 # Use a minimal theme for clean visuals
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +  # Rotate x-axis labels for readability
+    geom_text(stat = "count", aes(label = scales::percent(..count../sum(..count..), accuracy = 1)),  # Add percentage labels
+              vjust = -0.5, size = 3)
+
+  # Return the plot
+  return(plot)
+}
+
+#' Logistic Regression Analysis of Voter Turnout
+#'
+#' This function performs logistic regression to analyze the impact of various factors on voter turnout.
+#' It returns the model summary, including coefficients and significance levels.
+#'
+#' @param data A cleaned data frame containing voter data with a binary 'turnout' column
+#' @param predictors A character vector specifying the predictor variables to include in the model
+#' @return A summary of the logistic regression model
+#' @export
+
+logistic_regression_voter_turnout <- function(data, predictors) {
+  # Check if the required columns exist in the data
+  if (!all(c("turnout", predictors) %in% colnames(data))) {
+    stop("The data must contain 'turnout' and specified predictor columns.")
+  }
+  
+  # Create a formula for the logistic regression
+  formula <- as.formula(paste("turnout ~", paste(predictors, collapse = " + ")))
+  
+  # Fit the logistic regression model
+  model <- glm(formula, data = data, family = binomial)
+  
+  # Return the model summary
+  return(summary(model))
+}
 
 # Step 4: Document your functions
 # Use roxygen2 comments to document your functions
