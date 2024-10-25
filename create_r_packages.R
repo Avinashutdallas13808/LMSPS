@@ -319,6 +319,7 @@ use_github_action()
 # 1. Update the functions and commit the changes to your github page. Specifically, adjust the plot function so that they contain color and the summary function to make it more comprehensive.
 # Answer1: Please refer the function above;
 # 2. What challenges did you face in implementing and documenting your functions?
+
 #Answer 2: While implementing the functions it is important to handle missing or inconsistent data. Also, it is important to focus on ggplot2 visualization function. While documenting the
 #          the functions, we must focus on the Roxygen2 comments which require specific formatting for function documentation to integrate properly with package building.
 # 3. How does your package contribute to political science research?
